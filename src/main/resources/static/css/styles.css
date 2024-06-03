@@ -1,23 +1,37 @@
 .bg-light-pink {
-    background-color: #CCCC99 !important;
+  background-color: #CCCC99 !important;
 }
+
 .bg-light-green {
-    background-color: #777777 !important; /* Màu xanh l?c tím cho navbar */
+  background-color: #777777 !important;
+  /* Màu xanh l?c tím cho navbar */
 }
+
 .card-text del {
-    font-size: small;
+  font-size: small;
 }
-.card-text b{
-    font-size: large;
-    color: red;
+
+.card-text b {
+  font-size: large;
+  color: red;
 }
+
 .custom-img {
-    width: 150px; /* Chi?u r?ng c? ??nh */
-    height: 250px; /* Chi?u cao c? ??nh */
-    object-fit: cover; /* Ch? ?? s?p x?p hình ?nh */
-  }
-  .mySlides {display: none;}
-img {vertical-align: middle;}
+  width: 150px;
+  /* Chi?u r?ng c? ??nh */
+  height: 250px;
+  /* Chi?u cao c? ??nh */
+  object-fit: cover;
+  /* Ch? ?? s?p x?p hình ?nh */
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -68,11 +82,38 @@ img {vertical-align: middle;}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+  .text {
+    font-size: 11px
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nave-item-mid {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-item-right {
+  margin-left: auto;
 }
