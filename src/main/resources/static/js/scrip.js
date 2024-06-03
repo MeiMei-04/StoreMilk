@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(data.idcv)
                 const userLinkElement = document.getElementById('user-link');
 
-                if (isLogin) {
-                    userLinkElement.innerHTML = `<a class="nav-link" href="#"><i class="fa-solid fa-circle-user"></i> ${username}</a>`;
+                if (!isLogin) {
+                    userLinkElement.innerHTML = '<a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>';
                 } else {
-                    userLinkElement.innerHTML = `<a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>`;
+                    userLinkElement.innerHTML = `<a class="nav-link" href="/user/detail"><i class="fa-solid fa-circle-user"></i>${username}</a>`;
                 }
             })
             .catch(error => console.error('Error:', error));

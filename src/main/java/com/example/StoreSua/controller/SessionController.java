@@ -20,48 +20,11 @@ public class SessionController {
     public SessionInfo getSessionInfo() {
         boolean isLogin = SessionManager.isLogin();
         NguoiDung nguoiDung = SessionManager.isNguoiDung();
-        String username = nguoiDung != null ? nguoiDung.getHoten(): "";
+        if(nguoiDung == null){
+            return new SessionInfo(false, null,null);
+        }
+        String username = nguoiDung.getHoten();
         Long idcv = nguoiDung.getChucVu().getChucvu_id();
         return new SessionInfo(isLogin, username,idcv);
     }
-
-//    private static class SessionInfo {
-//        private boolean login;
-//        private String username;
-//        private Long idcv;
-//
-//        public SessionInfo(boolean login, String username, Long idcv) {
-//            this.login = login;
-//            this.username = username;
-//            this.idcv = idcv;
-//        }
-//
-//        public boolean isLogin() {
-//            return login;
-//        }
-//
-//        public void setLogin(boolean login) {
-//            this.login = login;
-//        }
-//
-//        public String getUsername() {
-//            return username;
-//        }
-//
-//        public void setUsername(String username) {
-//            this.username = username;
-//        }
-//
-//        public Long getIdcv() {
-//            return idcv;
-//        }
-//
-//        public void setIdcv(Long idcv) {
-//            this.idcv = idcv;
-//        }
-//
-//        
-//
-//        
-//    }
 }

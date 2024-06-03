@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thông tin người dùng</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="/css/styles.css"/>
+    </head>
+    <body>
+        <!-- Header with Navbar -->
+        <div th:replace="~{header :: header}"></div>
+        <div class="container mt-5">
+            <h2>Thông tin người dùng</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="hoten" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" id="hoten" placeholder="Nhập họ tên" th:value="${user.hoten}">
+                </div>
+                <div class="mb-3">
+                    <label for="ngaysinh" class="form-label">Ngày sinh</label>
+                    <input type="date" class="form-control" id="ngaysinh" th:value="${user.ngaysinh}">
+                </div>
+                <div class="mb-3">
+                    <label for="gioitinh" class="form-label">Giới tính:</label>
+                    <select class="form-select" id="gioitinh" name="gioitinh">
+                        <option value="0" th:selected="${user.gioitinh}">Nam</option>
+                        <option value="1" th:selected="${user.gioitinh}">Nữ</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Nhập email" th:value="${user.email}">
+                </div>
+                <div class="mb-3">
+                    <label for="sdt" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="sdt" placeholder="Nhập số điện thoại" th:value="${user.sdt}">
+                </div>
+                <div class="mb-3">
+                    <label for="cccd" class="form-label">CCCD</label>
+                    <input type="text" class="form-control" id="cccd" placeholder="Nhập CCCD" th:value="${user.cccd}">
+                </div>
+                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            </form>
+        </div>
+        <div th:replace="~{footer :: footer}"></div>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="/js/scrip.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
