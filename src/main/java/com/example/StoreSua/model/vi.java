@@ -4,10 +4,52 @@
  */
 package com.example.StoreSua.model;
 
+import jakarta.persistence.*;
+
 /**
  *
  * @author truon
  */
+@Entity
+@Table(name = "vi")
 public class vi {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long vi_id;
+    private String tenvi;
+    private int trangthai;
+
+    public vi() {
+    }
+
+    public vi(String tenvi, int trangthai, Long vi_id) {
+        this.tenvi = tenvi;
+        this.trangthai = trangthai;
+        this.vi_id = vi_id;
+    }
+
+    public String getTenvi() {
+        return tenvi;
+    }
+
+    public void setTenvi(String tenvi) {
+        this.tenvi = tenvi;
+    }
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public Long getVi_id() {
+        return vi_id;
+    }
+
+    public void setVi_id(Long vi_id) {
+        this.vi_id = vi_id;
+    }
 }

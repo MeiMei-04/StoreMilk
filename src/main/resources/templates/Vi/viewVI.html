@@ -10,6 +10,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>Day la Vi ne</div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ten Vi</th>
+            <th>Trangthai</th>
+            <th>HanhDong</th>
+        </tr>
+        </thead>
+        <tbody >
+            <tr th:each="x : ${viS}">
+                <td th:text="${x.vi_id}"></td>
+                <td th:text="${x.tenvi}"></td>
+                <td th:text="${x.trangthai}"></td>
+            </tr>
+        </tbody>
+    </table>
     </body>
 </html>

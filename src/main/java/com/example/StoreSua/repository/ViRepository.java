@@ -4,12 +4,15 @@
  */
 package com.example.StoreSua.repository;
 
+import com.example.StoreSua.model.vi;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author truon
  */
-public interface ViRepository extends JpaRepository<Object, Object>{
-    
+@Repository
+public interface ViRepository extends JpaRepository<vi, Long>{
+
 }
