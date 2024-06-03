@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Viewer</title>
+    <script>
+        async function fetchLogs() {
+            try {
+                const response = await fetch('/logs');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const logs = await response.json();
+                displayLogs(logs);
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        function displayLogs(logs) {
+            const logContainer = document.getElementById('log-container');
+            logContainer.innerHTML = '';
+            logs.forEach(log => {
+                const logElement = document.createElement('pre');
+                logElement.textContent = log;
+                logContainer.appendChild(logElement);
+            });
+        }
+
+        window.onload = fetchLogs;
+    </script>
+</head>
+<body>
+<h1>Log Viewer</h1>
+<div id="log-container"></div>
+</body>
+</html>

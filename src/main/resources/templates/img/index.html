@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Thêm các liên kết CSS của Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS để thiết lập kích thước hình ảnh */
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<!-- Thẻ container của Bootstrap để căn giữa nội dung -->
+<div class="container">
+    <a class="btn btn-primary" th:href="@{/upload/add}">Thêm ảnh mới</a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Link ảnh</th>
+            <th>Tên</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="x:${dataimg}" th:if="${x.trangthai == 1}">
+            <td th:text="${x.img_id}"></td>
+            <td>
+                <img th:src="${x.linkimg}" alt="Image"/>
+            </td>
+            <td th:text="${x.tenanhimg}"></td>
+            <td th:text="${x.trangthai}"></td>
+            <td>
+                <a class="btn btn-warning" th:href="@{/upload/delete/{id}(id=${x.img_id})}">Xóa</a>
+                <a class="btn btn-warning" th:href="@{/upload/edit/{id}(id=${x.img_id})}">Sửa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Thêm liên kết JS của Bootstrap và jQuery cho các tính năng tương tác -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

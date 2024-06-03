@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+    <style>
+        /* CSS để thiết lập kích thước hình ảnh */
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script>
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onloadend = function () {
+                    const base64String = reader.result;
+                    document.getElementById('linkimgInput').value = base64String;
+                    document.getElementById('previewImage').src = base64String;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Upload Image</h1>
+
+<form id="imageForm" th:action="@{/upload/update/{id}(id=${imgs.img_id})}" method="post">
+    <label>Image Name</label>
+    <input type="text" name="tenanhimg" th:value="${imgs.tenanhimg}" required/>
+    <input type="file" id="linkimg" accept="image/png, image/jpeg" onchange="handleFileSelect(event)" required/>
+    <input type="hidden" id="linkimgInput" name="linkimg" />
+    <button type="submit">Add</button>
+</form>
+<img id="previewImage" th:src="${imgs.linkimg}" />
+</body>
+</html>

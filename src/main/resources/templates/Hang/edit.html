@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/hang/update/{id} (id=${datahang.hang_id})}" method="post">
+    <label>
+        ten
+    </label>
+    <input type="text" name="tenhang" th:value="${datahang.tenhang}">
+    <button type="submit">Caapj nhat</button>
+</form>
+</body>
+</html>
