@@ -21,15 +21,15 @@ public class ChucVu {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long chucvu_id;
     private String tenchucvu;
-    private int tranthai;
+    private int trangthai;
 
     public ChucVu() {
     }
 
-    public ChucVu(Long chucvu_id, String tenchucvu, int tranthai) {
+    public ChucVu(Long chucvu_id, String tenchucvu, int trangthai) {
         this.chucvu_id = chucvu_id;
         this.tenchucvu = tenchucvu;
-        this.tranthai = tranthai;
+        this.trangthai = trangthai;
     }
 
     public Long getChucvu_id() {
@@ -48,12 +48,14 @@ public class ChucVu {
         this.tenchucvu = tenchucvu;
     }
 
-    public int getTranthai() {
-        return tranthai;
+    public int getTrangthai() {
+        return trangthai;
     }
 
-    public void setTranthai(int tranthai) {
-        this.tranthai = tranthai;
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
     }
+
+    
     
 }

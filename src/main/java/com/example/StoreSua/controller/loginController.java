@@ -6,6 +6,7 @@ package com.example.StoreSua.controller;
 
 import com.example.StoreSua.model.NguoiDung;
 import com.example.StoreSua.repository.NguoiDungRepository;
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -31,10 +33,10 @@ public class loginController {
     }
 
     @PostMapping("/login")
-    public String login(NguoiDung n,Model model) {
-        System.out.println(n.getHoten());
+    public String login(@RequestParam("taikhoan") String taikhoan,@RequestParam("matkhau") String matkhau,Model model) {
+        System.out.println(taikhoan);
         String textFail = null;
-        this.nguoiDung = nguoiDungRepository.findByUsernameAndPassword(n.getTaikhoan(), n.getHoten());
+        this.nguoiDung = nguoiDungRepository.findByUsernameAndPassword(taikhoan, matkhau);
         if (this.nguoiDung == null) {
             System.out.println("Login fail");
             textFail = "Login Fail";
