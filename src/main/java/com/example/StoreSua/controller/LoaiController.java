@@ -63,7 +63,7 @@ public class LoaiController {
         return "redirect:/loai/list";
     }
     @PostMapping("/update/{id}")
-    public String update(@PathVariable Long id,  Loai loais){
+    public String update(@PathVariable Long id,  Loai loais) {
         Loai loai = loaiRepository.findById(id).orElseThrow();
         loai.setTenloai(loais.getTenloai());
         loai.setTrangthai(loais.getTrangthai());

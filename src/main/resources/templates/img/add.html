@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Upload Image</title>
+  <script>
+    function autoSubmit() {
+      document.getElementById('imageForm').submit();
+    }
+  </script>
+</head>
+<body>
+<h1>Upload Image</h1>
+
+<form id="imageForm" method="post" enctype="multipart/form-data" action="/upload/image">
+  <input type="file" name="image" accept="image/png, image/jpeg" required onchange="autoSubmit()"/>
+</form>
+
+<form action="/upload/save" method="post">
+  <label>Image Name</label>
+  <input type="text" name="tenanhimg" required/>
+  <input type="hidden" name="linkimg" th:value="${imageUrl}"/>
+  <button type="submit">Add</button>
+</form>
+
+<div th:if="${imageUrl}">
+  <h2>Uploaded Image</h2>
+  <img th:src="${imageUrl}" alt="Uploaded Image" style="width: 150px; height: 150px;"/>
+<!--  <p>Link: <a th:href="${imageUrl}" th:text="${imageUrl}"></a></p>-->
+</div>
+
+<!--<div th:if="${message}">-->
+<!--  <p th:text="${message}"></p>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>hang_id</tr>
+    <tr>tenhang</tr>
+    <tr>trangthai</tr>
+    <tr></tr>
+    </thead>
+    <tbody>
+    <tr th:each="x:${listhang}">
+        <td th:text="${x.hang_id}"></td>
+        <td th:text="${x.tenhang}"></td>
+        <td th:text="${x.trangthai}"></td>
+    <td>
+        <a th:href="@{/hang/edit/{id}(id=${x.hang_id})}">cap nhat</a>
+        <a th:href="@{/hang/delete/{id}(id=${x.hang_id})}">cap nhat</a>
+    </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
