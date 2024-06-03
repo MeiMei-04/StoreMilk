@@ -4,6 +4,8 @@
  */
 package com.example.StoreSua.auth;
 
+import com.example.StoreSua.model.NguoiDung;
+
 /**
  *
  * @author Hieu
@@ -11,18 +13,22 @@ package com.example.StoreSua.auth;
 public class SessionManager {
     private static boolean isLogin = false;
     // khai bao nhan vien
-    public static void login(){
+    private static NguoiDung nguoiDung = null; 
+    public static void login(NguoiDung nguoiDung){
         isLogin = true;
-        //set thong tin nhan vien
+        SessionManager.nguoiDung = nguoiDung;
+        
+        
     }
     public static boolean isLogin(){
         return isLogin;
     }
-//    public static nhanvien isNhanVien(){
-//        return "";
-//    }
+    public static NguoiDung isNguoiDung(){
+        return SessionManager.nguoiDung;
+    }
     public static void logout(){
         isLogin = false;
         //xoa thong tin dang nhap
+        SessionManager.nguoiDung = null;
     }
 }
