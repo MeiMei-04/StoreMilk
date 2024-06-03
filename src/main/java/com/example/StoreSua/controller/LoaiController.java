@@ -4,7 +4,7 @@
  */
 package com.example.StoreSua.controller;
 
-import com.example.StoreSua.model.Loai;
+import com.example.StoreSua.model.loai;
 import com.example.StoreSua.repository.LoaiRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoaiController {
     @Autowired
     LoaiRepository loaiRepository;
-    private List<Loai> loais = new ArrayList<>();
+    private List<loai> loais = new ArrayList<>();
     @ModelAttribute("loais")
-    public List<Loai> getLoais(){
+    public List<loai> getLoais(){
         loais = loaiRepository.findAll();
         if(loais.isEmpty()){
             System.out.println("ListNull");
@@ -35,5 +35,9 @@ public class LoaiController {
     @GetMapping("/list")
     public String list(){
         return "Loai/index.html";
+    }
+    @GetMapping("/add")
+    public String add(Model model){
+        
     }
 }

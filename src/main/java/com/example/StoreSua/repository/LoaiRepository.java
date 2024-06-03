@@ -4,7 +4,7 @@
  */
 package com.example.StoreSua.repository;
 
-import com.example.StoreSua.model.Loai;
+import com.example.StoreSua.model.loai;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Hieu
  */
 @Repository
-public interface LoaiRepository extends JpaRepository<Loai, Long>{
+public interface LoaiRepository extends JpaRepository<loai, Long>{
 
 }
