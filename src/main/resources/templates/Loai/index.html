@@ -25,7 +25,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${x.tenloai}"></td>
                     <td th:text="${x.trangthai}"></td>
                     <td>
-                        <a href="">C?p Nh?t</a>
+                        <a th:href="@{/loai/edit/{id} (id=${x.Loai_ID})}">C?p Nh?t</a>
+                        <a th:href="@{/loai/delete/{id} (id=${x.Loai_ID})}">Xoa</a>
                     </td>
                 </tr>
             </tbody>

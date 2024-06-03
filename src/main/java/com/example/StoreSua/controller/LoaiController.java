@@ -8,11 +8,11 @@ import com.example.StoreSua.model.Loai;
 import com.example.StoreSua.repository.LoaiRepository;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -24,6 +24,7 @@ public class LoaiController {
     @Autowired
     LoaiRepository loaiRepository;
     private List<Loai> loais = new ArrayList<>();
+
     @ModelAttribute("loais")
     public List<Loai> getLoais(){
         loais = loaiRepository.findAll();
@@ -35,5 +36,38 @@ public class LoaiController {
     @GetMapping("/list")
     public String list(){
         return "Loai/index.html";
+    }
+//    @GetMapping("/addlist")
+//    public String add(){
+//        return "Loai/add.html";
+//    }
+    @GetMapping("/add")
+    public String add(){
+        return "Loai/add.html";
+    }
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model){
+        Loai loais = loaiRepository.findById(id).orElseThrow();
+        model.addAttribute("loais",loais);
+    return "Loai/edit.html";
+    }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id){
+        Loai loais = loaiRepository.findById(id).orElseThrow();
+        loaiRepository.delete(loais);
+        return "redirect:/loai/list";
+    }
+    @PostMapping("/save")
+    public String save(Loai loai){
+        loaiRepository.save(loai);
+        return "redirect:/loai/list";
+    }
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable Long id,  Loai loais){
+        Loai loai = loaiRepository.findById(id).orElseThrow();
+        loai.setTenloai(loais.getTenloai());
+        loai.setTrangthai(loais.getTrangthai());
+        loaiRepository.save(loais);
+        return "redirect:/loai/list";
     }
 }

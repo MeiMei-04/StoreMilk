@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/loai/update/{id} (id=${loais.Loai_ID})}" method="post">
+    <label>Tên Loại</label>
+    <input type="text" name="tenloai" th:value="${loais.tenloai}">
+    <label>Trạng Thái</label>
+    <select name="trangthai" id="">
+        <option th:value="1" th:selected="${loais.trangthai} == 1">1</option>
+        <option th:value="0" th:selected="${loais.trangthai} == 0">0</option>
+    </select>
+    <button type="submit"> Cập Nhật</button>
+</form>
+</body>
+</html>

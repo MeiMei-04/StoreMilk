@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/loai/save" method="post">
+    <label>Tên Loại</label>
+    <input type="text" name="tenloai">
+    <label>Trạng Thái</label>
+    <select name="trangthai">
+        <option th:value="1" >1</option>
+        <option th:value="0" >0</option>
+    </select>
+    <button type="submit"> Cập Nhật</button>
+</form>
+</body>
+</html>
