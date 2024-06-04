@@ -4,6 +4,7 @@
  */
 package com.example.StoreSua.controller;
 
+import com.example.StoreSua.auth.SessionManager;
 import com.example.StoreSua.model.NguoiDung;
 import com.example.StoreSua.repository.NguoiDungRepository;
 import org.hibernate.annotations.Parameter;
@@ -33,19 +34,16 @@ public class loginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("taikhoan") String taikhoan,@RequestParam("matkhau") String matkhau,Model model) {
-        System.out.println(taikhoan);
+    public String login(@RequestParam("taikhoan") String taikhoan, @RequestParam("matkhau") String matkhau, Model model) {
         String textFail = null;
         this.nguoiDung = nguoiDungRepository.findByUsernameAndPassword(taikhoan, matkhau);
         if (this.nguoiDung == null) {
             System.out.println("Login fail");
             textFail = "Login Fail";
+            model.addAttribute("textFail", textFail);
+            return "/login/login.html";
         }
-        else{
-            System.out.println("Login true");
-            textFail = "Login True";
-        }
-        model.addAttribute("textFail", textFail);
-        return "/login/login.html"; 
+        SessionManager.login(nguoiDung);
+        return "index.html";
     }
 }
