@@ -11,22 +11,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <div>Day la Vi ne</div>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Ten Vi</th>
-            <th>Trangthai</th>
-            <th>HanhDong</th>
-        </tr>
-        </thead>
-        <tbody >
-            <tr th:each="x : ${viS}">
-                <td th:text="${x.vi_id}"></td>
-                <td th:text="${x.tenvi}"></td>
-                <td th:text="${x.trangthai}"></td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ten Vi</th>
+                    <th>Trangthai</th>
+                    <th>HanhDong</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr th:each="x : ${viS}">
+                    <td th:text="${x.vi_id}"></td>
+                    <td th:text="${x.tenvi}"></td>
+                    <td th:text="${x.trangthai}"></td>
+                    <td> 
+                        <div>
+                            <a th:href="@{delete/{id}(id=${x.vi_id})}">xoa</a>
+                        </div>
+                        <div>
+                            <a th:href="@{edit/{id}(id=${x.vi_id})}">Sua</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>

@@ -23,9 +23,17 @@ public class vi {
     public vi() {
     }
 
-    public vi(String tenvi, int trangthai, Long vi_id) {
+    public vi(Long vi_id, String tenvi, int trangthai) {
+        this.vi_id = vi_id;
         this.tenvi = tenvi;
         this.trangthai = trangthai;
+    }
+
+    public Long getVi_id() {
+        return vi_id;
+    }
+
+    public void setVi_id(Long vi_id) {
         this.vi_id = vi_id;
     }
 
@@ -45,11 +53,5 @@ public class vi {
         this.trangthai = trangthai;
     }
 
-    public Long getVi_id() {
-        return vi_id;
-    }
 
-    public void setVi_id(Long vi_id) {
-        this.vi_id = vi_id;
-    }
 }
